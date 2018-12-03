@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { DbService } from '../db.service';
 
 
 @Component({
@@ -11,12 +12,18 @@ import { FormControl } from '@angular/forms';
 export class GraphsComponent implements OnInit {
 
   childTitle = new FormControl(''); 
+  graph: {};
   children = [];
 
-  constructor() {
+  constructor(private dbService: DbService) {
   }
 
   ngOnInit() {
+    this.getGraph();
+  }
+
+  getGraph(): void {
+    this.graph = this.dbService.getGraph();
   }
 
   onClick() {
