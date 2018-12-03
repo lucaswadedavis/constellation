@@ -1,0 +1,6 @@
+<div class="graph-group-item">
+  <h2>{{ title }}</h2>
+  <input type="text"  placeholder="title" [formControl]="childTitle" />
+  <button (click)="onClick()">Add Child</button>
+  <app-graphs *ngFor="let child of children" title="{{ child }}"></app-graphs>
+</div>
